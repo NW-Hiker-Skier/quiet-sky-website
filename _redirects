@@ -1,0 +1,2 @@
+# Canonical host: apex getquietsky.app. Redirect www -> apex (301).
+https://www.getquietsky.app/* https://getquietsky.app/:splat 301
