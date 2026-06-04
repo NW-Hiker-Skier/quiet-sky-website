@@ -1,2 +1,7 @@
 # Canonical host: apex getquietsky.app. Redirect www -> apex (301).
 https://www.getquietsky.app/* https://getquietsky.app/:splat 301
+
+# Story is intentionally capitalized on the public site; normalize lowercase visits.
+/story /Story 301
+/story/ /Story 301
+/story.html /Story 301
