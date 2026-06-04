@@ -10,8 +10,7 @@
 .story-layout{max-width:920px;margin:0 auto}
 .manifesto{position:relative;padding:clamp(28px,5vw,64px);border:1px solid var(--line);border-radius:28px;background:rgba(255,255,255,.88);box-shadow:var(--shadow-sm)}
 .manifesto::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;border-radius:28px 28px 0 0;background:linear-gradient(90deg,var(--sun-3),var(--trust));opacity:.88}
-.manifesto h2{font-size:clamp(28px,4vw,48px);line-height:1;color:var(--navy);letter-spacing:-.04em;margin-bottom:28px}
-.manifesto p{font-size:clamp(19px,2vw,24px);line-height:1.58;color:var(--ink-2);font-weight:500;margin:0 0 24px}
+.manifesto p{font-size:16.5px;line-height:1.62;color:var(--ink-2);font-weight:500;margin:0 0 20px}
 .manifesto p:first-of-type,.manifesto p:nth-last-child(2),.manifesto p:last-child{color:var(--navy);font-weight:800;letter-spacing:-.02em}
 .manifesto p:last-child{margin-bottom:0}
-@media(max-width:560px){.manifesto{border-radius:22px;padding:28px 22px}.manifesto p{font-size:18px}.story-hero{text-align:left}.story-hero .kicker{justify-content:flex-start}}
+@media(max-width:560px){.manifesto{border-radius:22px;padding:28px 22px}.story-hero{text-align:left}.story-hero .kicker{justify-content:flex-start}}
