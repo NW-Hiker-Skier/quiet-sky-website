@@ -1,0 +1,17 @@
+/* Story page, using the public website design system. */
+.story-page{background:var(--canvas);color:var(--ink)}
+.story-hero{position:relative;overflow:hidden;padding:clamp(130px,16vw,190px) var(--gutter) clamp(72px,10vw,120px);text-align:center;background:linear-gradient(180deg,#fff 0%,#fbf7ef 72%,#fff 100%)}
+.story-hero::before{content:"";position:absolute;inset:0;background:url("assets/sky-partly.webp") no-repeat 50% 34%/cover;opacity:.22;-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 82%);mask-image:linear-gradient(180deg,#000 0%,transparent 82%)}
+.story-hero-inner{position:relative;z-index:1;max-width:1040px;margin:0 auto}
+.story-hero .kicker{justify-content:center;margin-bottom:24px;color:var(--trust-deep)}
+.story-hero h1{font-size:clamp(52px,8vw,112px);line-height:.94;letter-spacing:-.05em;color:var(--navy)}
+.story-hero .lede{margin:28px auto 0;max-width:30em;color:var(--ink-2);font-size:clamp(19px,2vw,24px);line-height:1.45;font-weight:500}
+.story-body{padding:clamp(64px,9vw,120px) var(--gutter) clamp(88px,12vw,150px)}
+.story-layout{max-width:920px;margin:0 auto}
+.manifesto{position:relative;padding:clamp(28px,5vw,64px);border:1px solid var(--line);border-radius:28px;background:rgba(255,255,255,.88);box-shadow:var(--shadow-sm)}
+.manifesto::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;border-radius:28px 28px 0 0;background:linear-gradient(90deg,var(--sun-3),var(--trust));opacity:.88}
+.manifesto h2{font-size:clamp(28px,4vw,48px);line-height:1;color:var(--navy);letter-spacing:-.04em;margin-bottom:28px}
+.manifesto p{font-size:clamp(19px,2vw,24px);line-height:1.58;color:var(--ink-2);font-weight:500;margin:0 0 24px}
+.manifesto p:first-of-type,.manifesto p:nth-last-child(2),.manifesto p:last-child{color:var(--navy);font-weight:800;letter-spacing:-.02em}
+.manifesto p:last-child{margin-bottom:0}
+@media(max-width:560px){.manifesto{border-radius:22px;padding:28px 22px}.manifesto p{font-size:18px}.story-hero{text-align:left}.story-hero .kicker{justify-content:flex-start}}
