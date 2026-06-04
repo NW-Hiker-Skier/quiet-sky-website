@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiet Sky — beautiful weather, real privacy</title>
+<meta name="description" content="A private weather app for Android. Beautiful skies, real privacy. Providers never see your IP, device, or identity, and we keep no record of your requests.">
+<link rel="canonical" href="https://quietsky.app/">
+<meta property="og:title" content="Quiet Sky — beautiful weather, real privacy">
+<meta property="og:description" content="The weather app that can't track you. Providers never see your IP, device, or identity. Android, no ads, no accounts.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://quietsky.app/">
+<meta property="og:image" content="https://quietsky.app/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quiet Sky — beautiful weather, real privacy">
+<meta name="twitter:description" content="The weather app that can't track you. Android, no ads, no accounts.">
+<meta name="twitter:image" content="https://quietsky.app/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles-bold.css">
+<link rel="stylesheet" href="feature-cards.css">
+<style>
+  /* ---------- Folded-in pinned feature section ---------- */
+  .features-pinned { padding-block: clamp(60px,9vw,120px) clamp(40px,6vw,80px); }
+  .feat-intro { text-align: center; max-width: 760px; margin: 0 auto clamp(30px,5vw,60px); }
+  .feat-intro .kicker { justify-content: center; margin-bottom: 22px; }
+  .feat-intro h2 { font-size: clamp(34px,5.4vw,76px); letter-spacing: -0.045em; line-height: .96; color: var(--navy); }
+  .feat-intro .soft { color: var(--ink-3); }
+  .feat-intro p { margin: 22px auto 0; max-width: 26em; font-size: clamp(17px,1.7vw,21px); color: var(--ink-2); font-weight: 500; }
+
+  .pin-grid { display: grid; grid-template-columns: 1fr clamp(300px, 38vw, 460px); gap: clamp(30px,5vw,80px); align-items: start; }
+
+  .panel { min-height: 92vh; display: flex; flex-direction: column; justify-content: center; padding-block: 6vh; }
+  .panel .n { font-family: var(--mono); font-size: 13px; letter-spacing: .14em; color: var(--trust); display: flex; align-items: center; gap: 10px; }
+  .panel .n::before { content:""; width: 26px; height: 2px; background: var(--trust); }
+  .panel h3 { margin-top: 20px; font-size: clamp(34px,4.6vw,64px); letter-spacing: -0.04em; line-height: .98; color: var(--navy); font-weight: 800; }
+  .panel p { margin-top: 22px; font-size: clamp(17px,1.5vw,21px); color: var(--ink-2); font-weight: 500; line-height: 1.5; max-width: 18em; }
+  .panel .mini { margin-top: 26px; display: flex; gap: 22px; flex-wrap: wrap; }
+  .panel .mini div { font-size: 15px; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 9px; }
+  .panel .mini svg { width: 19px; height: 19px; color: var(--trust); flex: none; }
+
+  .pin-stage { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; }
+  .stage-inner { position: relative; width: 100%; display: grid; place-items: center; min-height: 600px; }
+  .stage-card { grid-area: 1 / 1; width: 100%; display: grid; place-items: center; opacity: 0; transform: translateY(28px) scale(.97); transition: opacity .6s var(--ease), transform .6s var(--ease); pointer-events: none; }
+  .stage-card.active { opacity: 1; transform: none; pointer-events: auto; }
+  .stage-card .phone { width: clamp(220px,24vw,288px); }
+  .stage-card .app-card { width: min(360px, 86%); }
+  .stage-card .app-card.wide { width: min(420px, 96%); }
+  .stage-card .pad { background: linear-gradient(160deg,#243b54,#11233a); border-radius: 34px; padding: clamp(26px,3.4vw,52px); width: min(380px, 92%); display: grid; place-items: center; }
+  .stage-card .pad .app-card { width: 100%; }
+
+  .pin-ticks { position: absolute; right: clamp(6px, 2vw, 20px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 11px; z-index: 3; }
+  .pin-ticks i { width: 7px; height: 7px; border-radius: 999px; background: var(--line-2); transition: background .3s, transform .3s; }
+  .pin-ticks i.on { background: var(--trust); transform: scale(1.5); }
+
+  @media (max-width: 860px) {
+    .pin-grid { grid-template-columns: 1fr; }
+    .pin-stage { display: none; }
+    .panel { min-height: 0; padding-block: 7vh 2vh; text-align: center; }
+    .panel .n, .panel .mini { justify-content: center; }
+    .panel p { margin-inline: auto; }
+    .panel .inline-media { display: grid; place-items: center; margin-top: 30px; }
+    .panel .inline-media .phone { width: min(240px, 62vw); }
+    .panel .inline-media .app-card { width: min(330px, 86vw); }
+    .panel .inline-media .pad { background: linear-gradient(160deg,#243b54,#11233a); border-radius: 30px; padding: 30px; width: min(360px,90vw); }
+  }
+  @media (min-width: 861px) { .panel .inline-media { display: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .stage-card { transition: opacity .25s linear; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="aurora-egg" id="auroraEgg" aria-hidden="true"><span class="egg-note">clear nights have a secret</span></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="brand" id="brand" role="button" tabindex="0" aria-label="Quiet Sky">
+    <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+      <defs><radialGradient id="sunNav" cx="46%" cy="42%" r="58%"><stop offset="0%" stop-color="#FFF6D8"/><stop offset="55%" stop-color="#FBC560"/><stop offset="100%" stop-color="#E89A44"/></radialGradient></defs>
+      <circle cx="16" cy="16" r="11" fill="#FBC560" opacity="0.16"/>
+      <circle cx="16" cy="16" r="8" fill="#FBC560" opacity="0.22"/>
+      <circle cx="16" cy="16" r="6" fill="url(#sunNav)"/>
+      <circle cx="14.2" cy="14.2" r="1.4" fill="#FFF8E6" opacity="0.8"/>
+    </svg>
+    <span class="wm"><b>Quiet</b><span>Sky</span></span>
+  </div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#privacy">Privacy</a>
+  </div>
+  <a class="btn btn-primary js-play" href="https://play.google.com/store/apps/details?id=com.quietsky.app" aria-label="Get Quiet Sky on Google Play">
+    <svg viewBox="0 0 24 26" aria-hidden="true"><path d="M2 2.2 13.4 13 2 23.8c-.5-.3-.9-.9-.9-1.7V3.9c0-.8.4-1.4.9-1.7Z" fill="#00D2FF"/><path d="M17.7 9.2 13.4 13 2 2.2c.5-.3 1.1-.3 1.8.1l13.9 6.9Z" fill="#00E676"/><path d="M17.7 16.8 3.8 23.7c-.7.4-1.3.4-1.8.1L13.4 13l4.3 3.8Z" fill="#FF3D57"/><path d="m17.7 9.2 4 2c1 .6 1 1.9 0 2.5l-4 2L13.4 13l4.3-3.8Z" fill="#FFC400"/></svg>
+    <span class="lbl-long">Get it on Google Play</span>
+  </a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-sky"></div>
+  <div class="hero-inner">
+    <h1 class="d1"><span class="it">Beautiful weather.</span><span class="it">Real privacy.</span></h1>
+    <p class="sub">The forecast is yours. You are nobody's product.</p>
+    <div class="hero-cta">
+      <a class="btn btn-trust btn-lg js-play" href="https://play.google.com/store/apps/details?id=com.quietsky.app">
+        <svg viewBox="0 0 24 26" aria-hidden="true"><path d="M2 2.2 13.4 13 2 23.8c-.5-.3-.9-.9-.9-1.7V3.9c0-.8.4-1.4.9-1.7Z" fill="#fff" opacity=".95"/><path d="M17.7 9.2 13.4 13 2 2.2c.5-.3 1.1-.3 1.8.1l13.9 6.9Z" fill="#fff"/><path d="M17.7 16.8 3.8 23.7c-.7.4-1.3.4-1.8.1L13.4 13l4.3 3.8Z" fill="#fff" opacity=".85"/><path d="m17.7 9.2 4 2c1 .6 1 1.9 0 2.5l-4 2L13.4 13l4.3-3.8Z" fill="#fff" opacity=".9"/></svg>
+        Get it on Google Play
+      </a>
+    </div>
+    <p class="hero-note">Start free · no account · no ads</p>
+  </div>
+  <div class="hero-phone reveal">
+    <div class="phone"><img src="assets/screen-home-light.webp" width="1080" height="2640" alt="Quiet Sky home screen showing Bellevue, 52 degrees and Partly Cloudy over a painterly sky, with a Private shield chip and a no-rain-in-6-hours note."></div>
+  </div>
+</header>
+
+<!-- ============ FEATURES · PINNED ============ -->
+<section class="features-pinned" id="features">
+  <div class="wrap">
+    <div class="feat-intro reveal">
+      <span class="kicker">The features</span>
+      <h2>Everything the sky is about to do. <span class="soft">Nothing about you.</span></h2>
+      <p>Sunset predictions, rain to the minute, and the details that matter. One device, the whole story.</p>
+    </div>
+
+    <div class="pin-grid">
+      <!-- LEFT: copy panels -->
+      <div class="panels">
+        <article class="panel" data-panel="0">
+          <span class="n">01 · Sunset quality</span>
+          <h3>Know which sunsets<br>are worth it.</h3>
+          <p>From three hours out, Quiet Sky reads the clouds and the air, then tells you if tonight is worth stepping outside for.</p>
+          <div class="inline-media"><div class="pad"><div class="app-card" data-qs-card="sunset"></div></div></div>
+        </article>
+
+        <article class="panel" data-panel="1">
+          <span class="n">02 · Rain, to the minute</span>
+          <h3>Rain in 8<br>minutes.</h3>
+          <p>A live precipitation countdown with a minute-by-minute intensity strip. Leave now, or wait it out.</p>
+          <div class="inline-media"><div class="pad"><div class="app-card" data-qs-card="nowcast"></div></div></div>
+        </article>
+
+        <article class="panel" data-panel="2">
+          <span class="n">03 · Details</span>
+          <h3>Every detail,<br>charted.</h3>
+          <p>Wind, precip, UV, pressure, each on its own hourly chart with peaks and lows called out. Depth, only when you ask.</p>
+          <div class="mini">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Peaks &amp; lows</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Tap any metric</div>
+          </div>
+          <div class="inline-media"><div class="phone"><img src="assets/screen-wind.webp" width="1080" height="2640" loading="lazy" alt="Wind detail screen with an hourly wind chart and peak and low callouts."></div></div>
+        </article>
+
+        <article class="panel" data-panel="3">
+          <span class="n">04 · 10-day forecast</span>
+          <h3>Ten days,<br>at a glance.</h3>
+          <p>A clean gradient bar maps each day's range, cool low to warm high, so the whole week reads in a single scroll.</p>
+          <div class="inline-media"><div class="phone"><img src="assets/screen-10day.webp" width="1080" height="2640" loading="lazy" alt="10-day forecast with gradient temperature-range bars."></div></div>
+        </article>
+
+        <article class="panel" data-panel="4">
+          <span class="n">05 · Radar</span>
+          <h3>The weather,<br>nothing else.</h3>
+          <p>Map-first, a quiet basemap, and the only loud thing on screen is the sky coming your way. Scrub forward and watch it move.</p>
+          <div class="inline-media"><div class="phone"><img src="assets/screen-radar.webp" width="1080" height="2640" loading="lazy" alt="Map-first radar over the Puget Sound with a time scrubber."></div></div>
+        </article>
+
+        <article class="panel" data-panel="5">
+          <span class="n">06 · Widgets</span>
+          <h3>Widgets worth<br>placing.</h3>
+          <p>Six hand-tuned sizes with full dynamic color, the sunset preview right on your home screen. Not a junk drawer of seventy.</p>
+          <div class="inline-media"><div class="app-card wide" data-qs-card="widgets"></div></div>
+        </article>
+      </div>
+
+      <!-- RIGHT: pinned stage (desktop) -->
+      <div class="pin-stage">
+        <div class="stage-inner" id="stage">
+          <div class="stage-card active" data-card="0"><div class="pad"><div class="app-card" data-qs-card="sunset"></div></div></div>
+          <div class="stage-card" data-card="1"><div class="pad"><div class="app-card" data-qs-card="nowcast"></div></div></div>
+          <div class="stage-card" data-card="2"><div class="phone"><img src="assets/screen-wind.webp" width="1080" height="2640" loading="lazy" alt="Wind detail screen."></div></div>
+          <div class="stage-card" data-card="3"><div class="phone"><img src="assets/screen-10day.webp" width="1080" height="2640" loading="lazy" alt="10-day forecast."></div></div>
+          <div class="stage-card" data-card="4"><div class="phone"><img src="assets/screen-radar.webp" width="1080" height="2640" loading="lazy" alt="Map-first radar."></div></div>
+          <div class="stage-card" data-card="5"><div class="app-card wide" data-qs-card="widgets"></div></div>
+          <div class="pin-ticks" id="ticks"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATEMENT ============ -->
+<section class="statement">
+  <div class="wrap reveal">
+    <h2 class="d2">Most weather apps<br>sell where you are.<br><span class="dim">This one can't.</span></h2>
+    <p class="say">No account. No ads. No trackers. Just the sky, and a forecast that stays between you and the clouds.</p>
+  </div>
+</section>
+
+<!-- ============ PRIVACY MOMENT ============ -->
+<section class="moment" id="privacy">
+  <div class="wrap">
+    <div class="m-media on-sky reveal">
+      <div class="phone"><img src="assets/screen-privacy.webp" width="1080" height="2640" loading="lazy" alt="The in-app Privacy Dashboard showing private weather checks and zero trackers."></div>
+    </div>
+    <div class="m-copy reveal">
+      <span class="kicker">Privacy you can watch</span>
+      <h2 class="d3">Proof, not<br>promises.</h2>
+      <p class="body">Every request is routed so providers never see your IP, your device, or you. And the app shows you each one as it happens.</p>
+      <div class="mini">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> Routed, never linked</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> Nothing to collect</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> See every request, in plain words</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECEIPT STRIP ============ -->
+<section class="moment receipt-band">
+  <div class="wrap" style="display:block">
+    <div class="reveal" style="max-width:640px">
+      <span class="kicker">The receipt</span>
+      <h2 class="d3" style="margin-top:20px">What the provider<br>actually sees.</h2>
+    </div>
+    <div class="receipt-card reveal">
+      <div>
+        <div class="rc-head">Your weather request, after the proxy</div>
+        <div class="field kept"><span class="k">query</span><span class="v">forecast</span></div>
+        <div class="field gone"><span class="k">ip_address</span><span class="v">73.118.42.9</span></div>
+        <div class="field gone"><span class="k">device_id</span><span class="v">a4:e9:…:1f</span></div>
+        <div class="field gone"><span class="k">identity</span><span class="v">—</span></div>
+      </div>
+      <div class="rc-say">
+        <h3>They get the weather.<br>Never you.</h3>
+        <p>Your IP, device, and identity are stripped before the request leaves, and we keep no record of it.</p>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:22px;font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--ink-3)">0 trackers · every request proxied · we keep no record of your requests.</p>
+  </div>
+</section>
+
+<!-- ============ FINAL ============ -->
+<section class="final" id="get">
+  <div class="final-sky"></div>
+  <div class="wrap reveal">
+    <h2 class="d1">The sky is<br>yours.</h2>
+    <p class="sub">Beautiful weather, real privacy, and the receipts to prove it.</p>
+    <div class="fcta">
+      <a class="btn btn-trust btn-lg js-play" href="https://play.google.com/store/apps/details?id=com.quietsky.app">
+        <svg viewBox="0 0 24 26" aria-hidden="true"><path d="M2 2.2 13.4 13 2 23.8c-.5-.3-.9-.9-.9-1.7V3.9c0-.8.4-1.4.9-1.7Z" fill="#fff" opacity=".95"/><path d="M17.7 9.2 13.4 13 2 2.2c.5-.3 1.1-.3 1.8.1l13.9 6.9Z" fill="#fff"/><path d="M17.7 16.8 3.8 23.7c-.7.4-1.3.4-1.8.1L13.4 13l4.3 3.8Z" fill="#fff" opacity=".85"/><path d="m17.7 9.2 4 2c1 .6 1 1.9 0 2.5l-4 2L13.4 13l4.3-3.8Z" fill="#fff" opacity=".9"/></svg>
+        Get it on Google Play
+      </a>
+    </div>
+    <p class="hero-note" style="margin-top:22px">Start free · no account · no ads</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+          <defs><radialGradient id="sunFoot" cx="46%" cy="42%" r="58%"><stop offset="0%" stop-color="#FFF6D8"/><stop offset="55%" stop-color="#FBC560"/><stop offset="100%" stop-color="#E89A44"/></radialGradient></defs>
+          <circle cx="16" cy="16" r="11" fill="#FBC560" opacity="0.18"/>
+          <circle cx="16" cy="16" r="6" fill="url(#sunFoot)"/>
+          <circle cx="14.2" cy="14.2" r="1.4" fill="#FFF8E6" opacity="0.8"/>
+        </svg>
+        <span class="wm"><b>Quiet</b><span>Sky</span></span>
+      </div>
+      <p class="tag">Weather that stays between you and the sky.</p>
+    </div>
+    <div class="footer-links">
+      <div class="fcol">
+        <h5>Product</h5>
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+      </div>
+      <div class="fcol">
+        <h5>Company</h5>
+        <a href="Privacy.html">Privacy policy</a>
+        <a href="Privacy.html#terms">Terms</a>
+        <a href="mailto:quiet.sky.weather@gmail.com">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span class="nt"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> No cookies. No tracking. Of course.</span>
+    <span class="cp">© 2026 Quiet Sky · Android-native, Material You</span>
+  </div>
+</footer>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#FFFFFF"/>
+    <circle cx="50" cy="44" r="20" fill="#FBC560" opacity="0.18"/>
+    <circle cx="50" cy="44" r="12" fill="#FBC560"/>
+    <text x="50" y="82" font-family="Hanken Grotesk,sans-serif" font-size="11" font-weight="800" fill="#1F3A5F" text-anchor="middle">Quiet Sky</text>
+  </svg>
+</template>
+
+<script src="cards.js"></script>
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.setAttribute('data-stuck', String(window.scrollY > 24));
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // strike the receipt's stripped fields when it scrolls into view
+  const receipt = document.querySelector('.receipt-card');
+  if (receipt) {
+    const rio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { receipt.classList.add('play'); rio.disconnect(); } });
+    }, { threshold: 0.4 });
+    rio.observe(receipt);
+  }
+
+  // pinned stage swap — driven by which copy panel is centered
+  const panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  const cards = Array.prototype.slice.call(document.querySelectorAll('#stage .stage-card'));
+  const ticks = Array.prototype.slice.call(document.querySelectorAll('#ticks i'));
+  let activeIdx = -1;
+  function setActive(i) {
+    if (i === activeIdx) return; activeIdx = i;
+    cards.forEach((c, ci) => c.classList.toggle('active', ci === i));
+    ticks.forEach((t, ti) => t.classList.toggle('on', ti === i));
+  }
+  const pinIo = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) setActive(parseInt(e.target.getAttribute('data-panel'), 10)); });
+  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+  panels.forEach((p) => pinIo.observe(p));
+
+  const egg = document.getElementById('auroraEgg');
+  let eggTimer = null;
+  function flashAurora() { if (!egg) return; egg.classList.add('show'); clearTimeout(eggTimer); eggTimer = setTimeout(() => egg.classList.remove('show'), 3600); }
+  const brand = document.getElementById('brand');
+  brand.addEventListener('click', flashAurora);
+  brand.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flashAurora(); } });
+</script>
+
+</body>
+</html>

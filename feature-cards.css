@@ -1,0 +1,103 @@
+/* ============================================================
+   QUIET SKY — Feature app-cards (shared)
+   Native HTML recreations of the in-app surfaces, rendered as
+   dark "product jewels" floating on the light marketing site.
+   Comps lifted from aurora-reset/features.jsx (exact tokens).
+   ============================================================ */
+
+.qs {
+  /* app surface tokens (dark, matches the app) */
+  --s:    #0F2132;
+  --s2:   #13283C;
+  --s3:   #1A3349;
+  --tx:   #ECF3FB;
+  --tx2:  #A8BCD2;
+  --tx3:  #7B8EA3;
+  --line: rgba(255,255,255,.09);
+  --precip: #57B6F0;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --disp: "Hanken Grotesk", system-ui, sans-serif;
+}
+
+/* shared card shell */
+.qs-card {
+  width: 100%;
+  background: var(--s);
+  border-radius: 22px;
+  color: var(--tx);
+  font-family: var(--disp);
+  overflow: hidden;
+  box-shadow: 0 40px 90px -44px rgba(20,40,70,.55), 0 2px 0 rgba(255,255,255,.04) inset;
+  border: 1px solid rgba(255,255,255,.05);
+}
+
+/* ---------- Sunset prediction (featured) ---------- */
+.qs-sunset .strip {
+  position: relative; height: 96px;
+  background: linear-gradient(90deg, #FFD074 0%, #F29E4C 35%, #E8624A 70%, #8A3D5F 100%);
+}
+.qs-sunset .strip::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,19,32,0) 46%, rgba(10,19,32,.5) 100%);
+}
+.qs-sunset .strip .eyebrow {
+  position: absolute; left: 18px; bottom: 12px; z-index: 1;
+  display: flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #fff; text-shadow: 0 1px 5px rgba(0,0,0,.5);
+}
+.qs-sunset .strip .eyebrow i { width: 7px; height: 7px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,.28); }
+.qs-sunset .body { padding: 18px 20px 20px; }
+.qs-sunset .body h4 { margin: 0; font-size: clamp(22px, 2.4vw, 27px); font-weight: 700; letter-spacing: -0.02em; color: var(--tx); line-height: 1.1; }
+.qs-sunset .body .reason { margin-top: 8px; font-size: 14px; color: var(--tx2); line-height: 1.45; font-weight: 500; }
+.qs-sunset .body .stats { display: flex; gap: 26px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+.qs-stat .k { font-size: 10.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--tx3); }
+.qs-stat .v { font-size: 16px; font-weight: 700; color: var(--tx); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.qs-stat .v.great { color: #F5904A; }
+
+/* ---------- Nowcast (Rain in 8 minutes) ---------- */
+.qs-nowcast { padding: 18px 20px 20px; border-left: 3px solid var(--precip); }
+.qs-nowcast .top { display: flex; align-items: flex-start; gap: 13px; }
+.qs-nowcast .ic { flex: none; width: 36px; height: 36px; border-radius: 999px; background: var(--s2); display: grid; place-items: center; color: var(--precip); margin-top: 1px; }
+.qs-nowcast h4 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; color: var(--tx); }
+.qs-nowcast .sub { margin-top: 5px; font-size: 13.5px; color: var(--tx2); line-height: 1.4; font-weight: 500; }
+.qs-bars { margin-top: 18px; }
+.qs-bars .track { display: flex; align-items: flex-end; gap: 2px; height: 40px; }
+.qs-bars .track i { flex: 1; border-radius: 2px; min-height: 4%; }
+.qs-bars .axis { display: flex; justify-content: space-between; margin-top: 8px; font-size: 10.5px; color: var(--tx3); font-weight: 600; font-family: var(--mono); }
+
+/* ---------- Widgets cluster ---------- */
+.qs-widgets { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.qs-w {
+  position: relative; border-radius: 22px; overflow: hidden;
+  font-family: var(--disp); color: #fff;
+  box-shadow: 0 30px 70px -40px rgba(20,40,70,.5);
+  aspect-ratio: 1 / 1; padding: 18px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.qs-w .we { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: .9; }
+.qs-w.big { aspect-ratio: 2 / 1; grid-column: 1 / -1; }
+
+/* sunset widget */
+.qs-w.sunset { background: linear-gradient(150deg, #FFD074 0%, #F29E4C 38%, #E8624A 68%, #8A3D5F 100%); }
+.qs-w.sunset .q { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+.qs-w.sunset .q i { width: 9px; height: 9px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,.3); }
+.qs-w.sunset .best { font-size: 13px; font-weight: 600; opacity: .95; margin-top: 2px; }
+.qs-w.sunset .we, .qs-w.sunset .q, .qs-w.sunset .best { text-shadow: 0 1px 6px rgba(80,30,10,.35); }
+
+/* rain widget */
+.qs-w.rain { background: var(--s); }
+.qs-w.rain .we { color: var(--tx3); }
+.qs-w.rain .num { font-size: 40px; font-weight: 300; letter-spacing: -0.03em; line-height: 1; color: var(--tx); font-variant-numeric: tabular-nums; }
+.qs-w.rain .num b { font-size: 17px; font-weight: 600; color: var(--tx2); }
+.qs-w.rain .mini { display: flex; align-items: flex-end; gap: 2px; height: 26px; margin-top: 6px; }
+.qs-w.rain .mini i { flex: 1; border-radius: 1.5px; min-height: 8%; background: var(--precip); }
+
+/* day-arc / glance widget */
+.qs-w.glance { background: var(--s); }
+.qs-w.glance .we { color: var(--tx3); }
+.qs-w.glance .temp { font-size: 34px; font-weight: 300; letter-spacing: -0.03em; color: var(--tx); }
+.qs-w.glance .cond { font-size: 13px; color: var(--tx2); font-weight: 500; margin-top: -2px; }
+.qs-w.glance .row { display: flex; gap: 4px; margin-top: auto; }
+.qs-w.glance .row span { flex: 1; text-align: center; font-size: 10px; color: var(--tx3); font-weight: 600; }
+.qs-w.glance .row b { display: block; font-size: 12px; color: var(--tx); font-weight: 700; margin-top: 2px; }
