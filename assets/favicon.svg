@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
+  <defs>
+    <linearGradient id="sky" x1="54" y1="0" x2="54" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffcb94"/>
+      <stop offset=".22" stop-color="#e48c8a"/>
+      <stop offset=".55" stop-color="#7a4596"/>
+      <stop offset=".85" stop-color="#1f2e68"/>
+      <stop offset="1" stop-color="#0a1530"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="54" cy="63.3" r="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffcd7e" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#ffcd7e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="54" cy="63.3" r="16.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff0cc"/>
+      <stop offset=".6" stop-color="#ffd088"/>
+      <stop offset="1" stop-color="#e08a4c"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h108v108H0z"/>
+  <path fill="#fff" fill-opacity=".16" d="M0 63.3h108v.18H0z"/>
+  <circle cx="54" cy="63.3" r="38" fill="url(#glow)"/>
+  <circle cx="54" cy="63.3" r="16.4" fill="url(#sun)"/>
+  <circle cx="82.3" cy="25.3" r=".37" fill="#fff" fill-opacity=".6"/>
+</svg>
