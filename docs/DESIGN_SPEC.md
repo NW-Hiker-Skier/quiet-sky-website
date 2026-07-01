@@ -178,7 +178,7 @@ Source of truth is the `aurora-reset` design system (render those, not older cap
 
 ## 11. CTAs & links
 
-- All three primary CTAs (nav, hero, final) point to the same Play Store URL (`play.google.com/store/apps/details?id=com.quietsky.app`).
+- All three primary CTAs (nav, hero, final) point to the same Play Store URL (`play.google.com/store/apps/details?id=app.getquietsky.android`).
 - Footer: **Privacy → `Privacy.html`** (a dead privacy link is unacceptable on a privacy product), Terms → `Privacy.html#terms`, **Contact → `mailto:quiet.sky.weather@gmail.com`**.
 - Trust note under CTAs: "Start free · no account · no ads."
 
