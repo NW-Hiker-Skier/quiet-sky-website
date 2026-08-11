@@ -27,7 +27,7 @@
     <h1>Privacy Policy</h1>
     <p class="qs-lede">No accounts. No analytics SDKs in the mobile applications. No behavioral trackers. No server that stores anything about you. This policy is long because the alternative is vague&nbsp;— and vague privacy policies are how apps lie.</p>
     <div class="qs-meta">
-      <span><strong>Proposed last updated</strong> August 2, 2026 (effective upon publication)</span>
+      <span><strong>Last updated</strong> August 10, 2026</span>
       <span><strong>App</strong> Quiet Sky (<code>app.getquietsky.android</code>)</span>
       <span><strong>Publisher</strong> Quiet Sky LLC, Spokane, WA, USA</span>
       <span><strong>Contact</strong> <a href="mailto:support@getquietsky.app">support@getquietsky.app</a></span>
@@ -44,7 +44,7 @@
     <table>
       <thead><tr><th>Data</th><th>Source</th><th>Stored where</th><th>Sent anywhere?</th></tr></thead>
       <tbody>
-        <tr><td>Current location</td><td>Android location permission, if you allow it</td><td>On your device as "Current location"</td><td>Coordinates sent to weather APIs through the proxy at your selected precision (§3).</td></tr>
+        <tr><td>Current location</td><td>Android location permission, if you allow it</td><td>On your device as "Current location"</td><td>Coordinates sent through the proxy at your selected precision to weather APIs and, when a location label is needed, Geoapify (§3).</td></tr>
         <tr><td>Locations you add</td><td>You type them or pick from search</td><td>On your device, app-private storage</td><td>Coordinates sent to weather APIs (§3). Saved display names are not sent with forecast requests; location-search text is sent only when you search.</td></tr>
         <tr><td>Provider preference</td><td>Your selection in Settings</td><td>On your device</td><td>No</td></tr>
         <tr><td>Theme preference</td><td>Your selection in Settings</td><td>On your device</td><td>No</td></tr>
@@ -68,6 +68,7 @@
       <li>The HTTP headers your device sends. The proxy does not forward your device's User-Agent to providers; upstream requests carry only a generic proxy header and the provider API key.</li>
       <li>Your IP address, because Cloudflare's edge needs it to route the response. Quiet Sky does not log or forward your IP address to weather providers. If abuse rate limiting is enabled, the Worker may use the IP address as a short-lived rate-limit key inside Cloudflare; it is not written to request logs, stored in a user profile, or sent to upstream providers.</li>
     </ul>
+    <p>For location labels, the proxy stores place names and the selected-precision coordinates associated with them. These location-name mappings contain no user, device, IP, or advertising identifier and may be stored indefinitely.</p>
     <p>What the proxy does <em>not</em> see, ever:</p>
     <ul>
       <li>The names of locations you've saved on your device.</li>
@@ -82,6 +83,7 @@
       <thead><tr><th>Upstream</th><th>What they receive per request</th><th>Privacy policy</th></tr></thead>
       <tbody>
         <tr><td>Open-Meteo</td><td>Coordinates, location search text, and weather, air-quality, and geocoding request parameters, via the Quiet Sky proxy.</td><td><a href="https://open-meteo.com/en/terms">terms &amp; privacy</a></td></tr>
+        <tr><td>Geoapify</td><td>Receives coordinates through the Quiet Sky proxy at your selected precision to help look up the location label name. Geoapify receives the proxy IP, not your device IP or any user, device, or advertising identifier.</td><td><a href="https://www.geoapify.com/privacy-policy/">privacy</a></td></tr>
         <tr><td>Foreca</td><td>Coordinates and forecast or severe-alert request parameters, via the Quiet Sky proxy.</td><td><a href="https://www.foreca.com/privacy-policy.html">privacy</a></td></tr>
         <tr><td>Pirate Weather</td><td>Coordinates and forecast or severe-alert request parameters, via the Quiet Sky proxy.</td><td><a href="https://pirate-weather.apiable.io/terms">terms</a> / <a href="https://pirateweather.net/en/latest/">docs</a></td></tr>
         <tr><td>Rainbow.ai</td><td>Coordinates and forecast request parameters, via the Quiet Sky proxy.</td><td><a href="https://rainbow.ai/privacy-policy">privacy</a></td></tr>
@@ -102,8 +104,8 @@
     <table>
       <thead><tr><th>Permission</th><th>Used for</th><th>Required?</th></tr></thead>
       <tbody>
-        <tr><td><code>ACCESS_FINE_LOCATION</code></td><td>Precise current-location forecasts and nowcast accuracy. Coordinates go only to weather providers through our proxy, which strips your IP, device, and identity first.</td><td>Optional&nbsp;— choose Approximate at the Android prompt, or search for a place instead.</td></tr>
-        <tr><td><code>ACCESS_COARSE_LOCATION</code></td><td>Filling the first forecast from your approximate current location.</td><td>Optional&nbsp;— deny it and search for a place instead.</td></tr>
+        <tr><td><code>ACCESS_FINE_LOCATION</code></td><td>Precise current-location forecasts, nowcast accuracy, and location labels. Coordinates go only to weather providers and Geoapify through our proxy, which strips your IP, device, and identity first.</td><td>Optional&nbsp;— choose Approximate at the Android prompt, or search for a place instead.</td></tr>
+        <tr><td><code>ACCESS_COARSE_LOCATION</code></td><td>Filling the first forecast and location label from your approximate current location.</td><td>Optional&nbsp;— deny it and search for a place instead.</td></tr>
         <tr><td><code>POST_NOTIFICATIONS</code></td><td>Severe-weather alerts and daily summaries. Both off by default.</td><td>Optional&nbsp;— deny it and the app still works.</td></tr>
         <tr><td><code>ACCESS_NETWORK_STATE</code></td><td>Checking whether you're online before making a request.</td><td>Yes&nbsp;— used to avoid failed requests when offline.</td></tr>
         <tr><td><code>INTERNET</code></td><td>Talking to the Quiet Sky proxy and first-party map infrastructure.</td><td>Yes&nbsp;— denying it means no weather or map data.</td></tr>
