@@ -29,4 +29,4 @@ Open `index.html` directly in a browser, or serve this folder with any simple st
 
 ## Privacy
 
-No analytics, cookies, tracking pixels, or third-party scripts beyond Google Fonts are included.
+The website uses Cloudflare Web Analytics, as disclosed in `Privacy.html`. It does not include Google Analytics, advertising trackers, or Google Fonts requests. Hanken Grotesk and JetBrains Mono are served from this site; see `assets/fonts/README.md` for their sources and licenses.
