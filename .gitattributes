@@ -1,0 +1,3 @@
+# Keep the upstream license bytes identical to the recorded SHA-256 hashes,
+# including on Windows checkouts with core.autocrlf enabled.
+/assets/fonts/*-OFL.txt -text
