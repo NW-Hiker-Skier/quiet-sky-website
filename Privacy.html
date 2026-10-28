@@ -25,8 +25,8 @@
     <h1>Privacy Policy</h1>
     <p class="qs-lede">No accounts. No analytics SDKs in the mobile applications. No behavioral trackers. No server that stores anything about you. This policy is long because the alternative is vague&nbsp;— and vague privacy policies are how apps lie.</p>
     <div class="qs-meta">
-      <span><strong>Last updated</strong> October 27, 2026</span>
-      <span><strong>App</strong> Quiet Sky (Android: <code>app.getquietsky.android</code>; iPhone: <code>app.getquietsky.ios</code>)</span>
+      <span><strong>Last updated</strong> August 10, 2026</span>
+      <span><strong>App</strong> Quiet Sky (<code>app.getquietsky.android</code>)</span>
       <span><strong>Publisher</strong> Quiet Sky LLC, Spokane, WA, USA</span>
       <span><strong>Contact</strong> <a href="mailto:support@getquietsky.app">support@getquietsky.app</a></span>
     </div>
@@ -42,7 +42,7 @@
     <table>
       <thead><tr><th>Data</th><th>Source</th><th>Stored where</th><th>Sent anywhere?</th></tr></thead>
       <tbody>
-        <tr><td>Current location</td><td>Android or iPhone location permission, if you allow it</td><td>On your device as "Current location"</td><td>Coordinates sent through the proxy at your selected precision to weather APIs and, when a location label is needed, Geoapify (§3).</td></tr>
+        <tr><td>Current location</td><td>Android location permission, if you allow it</td><td>On your device as "Current location"</td><td>Coordinates sent through the proxy at your selected precision to weather APIs and, when a location label is needed, Geoapify (§3).</td></tr>
         <tr><td>Locations you add</td><td>You type them or pick from search</td><td>On your device, app-private storage</td><td>Coordinates sent to weather APIs (§3). Saved display names are not sent with forecast requests; location-search text is sent only when you search.</td></tr>
         <tr><td>Provider preference</td><td>Your selection in Settings</td><td>On your device</td><td>No</td></tr>
         <tr><td>Theme preference</td><td>Your selection in Settings</td><td>On your device</td><td>No</td></tr>
@@ -52,10 +52,10 @@
     </table>
     </div>
     <p><strong>No personal information is collected.</strong> Quiet Sky does not ask for personal information such as your name, email, phone number, or date of birth. There are no accounts, no sign-in, and no way to "log in."</p>
-    <p>Quiet Sky requests Android or iPhone location permission <em>only</em> when you ask for local weather. On Android 12+ you can choose Precise or Approximate in the system prompt. On iPhone, you can turn Precise Location on or off in the location permission settings. Quiet Sky defaults forecast requests to full precision for nowcast accuracy, and lets you lower precision to Neighborhood or Coarse in Settings. It does not run background location tracking.</p>
+    <p>Quiet Sky requests Android location permission <em>only</em> when you ask for local weather. On Android 12+ you can choose Precise or Approximate in the system prompt. Quiet Sky defaults forecast requests to full precision for nowcast accuracy, and lets you lower precision to Neighborhood or Coarse in Settings. It does not run background location tracking.</p>
 
     <h2 id="s2">2. What data we collect on our server</h2>
-    <p>We operate a Cloudflare Worker at <code>api.getquietsky.app</code> that the app uses as a proxy between your device and upstream weather APIs. The proxy exists for three concrete reasons: (a) so we can swap providers without shipping a new APK or iPhone app update, (b) so upstream API keys are not embedded in the client, and (c) so upstream APIs see Cloudflare's IP and not yours.</p>
+    <p>We operate a Cloudflare Worker at <code>api.getquietsky.app</code> that the app uses as a proxy between your device and upstream weather APIs. The proxy exists for three concrete reasons: (a) so we can swap providers without shipping a new APK, (b) so upstream API keys are not embedded in the client, and (c) so upstream APIs see Cloudflare's IP and not yours.</p>
     <p><strong>The proxy does not log requests to durable storage.</strong> Cloudflare's edge nodes write short-lived operational logs (retained about 7 days for platform operations and abuse prevention). We do not enable Logpush, write request logs to a database, or keep an analytics view of your requests. We do not keep a user-linked history of what your device asked for.</p>
     <p><strong>The proxy does not associate requests with users</strong>, because there is no user identity to associate them with. There is no per-user or per-device API key, no cookie, and no fingerprint. Release builds may send a shared app access token so the app can talk to the Quiet Sky proxy; that token is not unique to you or your device and is not sent to weather providers.</p>
     <p>What the proxy briefly handles while processing a request:</p>
@@ -92,7 +92,7 @@
       </tbody>
     </table>
     </div>
-    <p><strong>Quiet Sky's mobile applications do not embed Firebase, Google Analytics, Crashlytics, Mixpanel, Amplitude, Sentry, Bugsnag, Adjust, AppsFlyer, the Facebook SDK, ironSource, Mintegral, Pangle, Unity Ads, AdMob, or any other analytics, attribution, or advertising SDK.</strong> Inspect the APK if you like&nbsp;— <code>classes.dex</code> will not contain any of those packages. The iPhone app bundle likewise contains none of those SDKs.</p>
+    <p><strong>Quiet Sky's mobile applications do not embed Firebase, Google Analytics, Crashlytics, Mixpanel, Amplitude, Sentry, Bugsnag, Adjust, AppsFlyer, the Facebook SDK, ironSource, Mintegral, Pangle, Unity Ads, AdMob, or any other analytics, attribution, or advertising SDK.</strong> Inspect the APK if you like&nbsp;— <code>classes.dex</code> will not contain any of those packages.</p>
 
     <h2 id="website-analytics">Website analytics</h2>
     <p>The public Quiet Sky website uses Cloudflare Web Analytics for basic page-view, traffic, and performance measurement. This website measurement is not built into Quiet Sky's mobile applications. The website does not use Google Analytics, advertising analytics, cross-site behavioral tracking, or third-party marketing trackers. Cloudflare states that Web Analytics does not use client-side state, such as cookies or local storage, to collect usage metrics and does not fingerprint individuals via IP address, user-agent string, or other data for analytics reporting. Cloudflare also processes ordinary network and operational information as the website's hosting, security, and delivery provider under its own privacy policy.</p>
@@ -102,20 +102,20 @@
     <table>
       <thead><tr><th>Permission</th><th>Used for</th><th>Required?</th></tr></thead>
       <tbody>
-        <tr><td><code>ACCESS_FINE_LOCATION</code></td><td>Precise current-location forecasts, nowcast accuracy, and location labels. Coordinates go only to weather providers and Geoapify through our proxy, which strips your IP, device, and identity first.</td><td>Optional&nbsp;— choose Approximate at the Android prompt, turn off Precise Location on iPhone, or search for a place instead.</td></tr>
+        <tr><td><code>ACCESS_FINE_LOCATION</code></td><td>Precise current-location forecasts, nowcast accuracy, and location labels. Coordinates go only to weather providers and Geoapify through our proxy, which strips your IP, device, and identity first.</td><td>Optional&nbsp;— choose Approximate at the Android prompt, or search for a place instead.</td></tr>
         <tr><td><code>ACCESS_COARSE_LOCATION</code></td><td>Filling the first forecast and location label from your approximate current location.</td><td>Optional&nbsp;— deny it and search for a place instead.</td></tr>
         <tr><td><code>POST_NOTIFICATIONS</code></td><td>Severe-weather alerts and daily summaries. Both off by default.</td><td>Optional&nbsp;— deny it and the app still works.</td></tr>
-        <tr><td><code>ACCESS_NETWORK_STATE</code></td><td>Checking whether you're online before making a request.</td><td>Yes, on Android only&nbsp;— used to avoid failed requests when offline.</td></tr>
-        <tr><td><code>INTERNET</code></td><td>Talking to the Quiet Sky proxy and first-party map infrastructure.</td><td>Yes, on Android only&nbsp;— denying it means no weather or map data.</td></tr>
-        <tr><td><code>RECEIVE_BOOT_COMPLETED</code></td><td>Rescheduling background refresh after reboot.</td><td>Yes, on Android only. No network activity at boot itself.</td></tr>
+        <tr><td><code>ACCESS_NETWORK_STATE</code></td><td>Checking whether you're online before making a request.</td><td>Yes&nbsp;— used to avoid failed requests when offline.</td></tr>
+        <tr><td><code>INTERNET</code></td><td>Talking to the Quiet Sky proxy and first-party map infrastructure.</td><td>Yes&nbsp;— denying it means no weather or map data.</td></tr>
+        <tr><td><code>RECEIVE_BOOT_COMPLETED</code></td><td>Rescheduling background refresh after reboot.</td><td>Yes. No network activity at boot itself.</td></tr>
       </tbody>
     </table>
     </div>
-    <p>Quiet Sky does <strong>not</strong> request contacts, calendar, microphone, camera, SMS, phone, storage outside its own private directory, Bluetooth, NFC, USB, or any "special" permissions like <code>SYSTEM_ALERT_WINDOW</code> or accessibility services. It requests precise location (<code>ACCESS_FINE_LOCATION</code> on Android or Precise Location with When In Use access on iPhone) only for forecast accuracy, and the proxy strips your IP, device, and identity before any request reaches a provider.</p>
+    <p>Quiet Sky does <strong>not</strong> request contacts, calendar, microphone, camera, SMS, phone, storage outside its own private directory, Bluetooth, NFC, USB, or any "special" permissions like <code>SYSTEM_ALERT_WINDOW</code> or accessibility services. It requests precise location (<code>ACCESS_FINE_LOCATION</code>) only for forecast accuracy, and the proxy strips your IP, device, and identity before any request reaches a provider.</p>
 
-    <h2 id="s5">5. Billing</h2>
-    <p>If you subscribe to Quiet Sky, the transaction is handled entirely by the Google Play Billing Library on Android or Apple's StoreKit on iPhone. We do not see your payment method. Google tells us "this purchase token belongs to an active subscription"; we cache that locally on your device. On iPhone, StoreKit provides a verified subscription entitlement, which we also cache locally on your device. We do not get your name, email, billing address, or last four digits.</p>
-    <p>We do not currently operate a backend that records subscription state, so validation is done client-side against Google Play on Android or Apple's StoreKit on iPhone. If you uninstall and reinstall, the Play Billing Library restores your entitlement from Google's record on Android; on iPhone, StoreKit restores it from Apple's record.</p>
+    <h2 id="s5">5. The Play Billing case</h2>
+    <p>If you subscribe to Quiet Sky Pro (when subscriptions launch), the transaction is handled entirely by the Google Play Billing Library. We do not see your payment method. Google tells us "this purchase token belongs to an active subscription"; we cache that locally on your device. We do not get your name, email, billing address, or last four digits.</p>
+    <p>We do not currently operate a backend that records subscription state, so validation is done client-side against Google Play. If you uninstall and reinstall, the Play Billing Library restores your entitlement from Google's record.</p>
 
     <h2 id="s6">6. Children</h2>
     <p>Quiet Sky is not directed at children under 13. We do not knowingly collect data from anyone&nbsp;— including children&nbsp;— because we don't have a backend that collects data.</p>
@@ -130,18 +130,18 @@
     <p><strong>Data controller.</strong> Quiet Sky is operated by Quiet Sky LLC (Spokane, WA, USA), reachable at <a href="mailto:support@getquietsky.app">support@getquietsky.app</a>. Because the app keeps no server-side records tied to you, there is no centralized profile to administer.</p>
     <p>The "right to know what we have on you" and "right to delete" both resolve trivially: we don't have anything on you to know about or to delete. There is no server-side record tied to you.</p>
     <p><strong>No sale or sharing of personal information.</strong> We do not sell your personal information, and we do not "share" it for cross-context behavioral advertising, as those terms are defined under the California Consumer Privacy Act (CCPA/CPRA). We have never done so and have no mechanism to. Because we do not sell or share personal information, no "Do Not Sell or Share My Personal Information" action is needed.</p>
-    <p>To clear what's on your device: on Android, Settings → Apps → Quiet Sky → Storage → Clear data. On iPhone, delete Quiet Sky to remove its app data. To be sure the proxy never sees you again: stop using the app. There is no account to close.</p>
+    <p>To clear what's on your device: Settings → Apps → Quiet Sky → Storage → Clear data. To be sure the proxy never sees you again: stop using the app. There is no account to close.</p>
 
     <h2 id="s9">9. Security</h2>
-    <p>Network traffic is HTTPS only. The app trusts the standard system certificate store. Local storage uses Android's standard app-sandbox protection; we don't currently encrypt the local DataStore with a user-derived key (it's protected by Android's userdata-partition encryption, the platform default). On iPhone, local storage uses iOS's standard app-sandbox protection.</p>
+    <p>Network traffic is HTTPS only. The app trusts the standard system certificate store. Local storage uses Android's standard app-sandbox protection; we don't currently encrypt the local DataStore with a user-derived key (it's protected by Android's userdata-partition encryption, the platform default).</p>
 
     <h2 id="s10">10. Changes to this policy</h2>
     <p>If we change this policy, the new version replaces this one at the same URL and the effective date updates. If a change materially expands what data flows where, we'll note it in the app's "What's new" release notes for that version.</p>
 
-    <h2 id="s11">11. Things we'd rather be honest about</h2>
+    <h2 id="s11">11. Things we'd rather be honest about than hide</h2>
     <ul>
       <li><strong>No Tor mode.</strong> Your ISP can see that you're talking to <code>api.getquietsky.app</code>, just not what's inside the HTTPS request.</li>
-      <li><strong>We don't claim to be GDPR/CCPA "compliant" as a marketing checkmark.</strong> We designed around not collecting data.</li>
+      <li><strong>We don't claim to be GDPR/CCPA "compliant" as a marketing checkmark.</strong> We designed around not collecting data, which is the only honest way to make those frameworks easy.</li>
       <li><strong>Cloudflare is a US company</strong> subject to US legal process. Quiet Sky does not keep user-linked request logs to hand over. Cloudflare's short-lived edge logs are subject to Cloudflare's own legal-process handling, not ours.</li>
       <li><strong>The privacy core of the Quiet Sky proxy is open source.</strong> You do not have to take our word for the identity-stripping claim — the public repo shows the proxy boundary and includes runnable privacy-invariant tests: <a href="https://github.com/NW-Hiker-Skier/quietsky-privacy-proxy">github.com/NW-Hiker-Skier/quietsky-privacy-proxy</a>. Provider-specific integration recipes and API credentials are withheld, but the privacy-relevant proxy core is public.</li>
       <li><strong>The proxy proxies.</strong> It is not a VPN, Tor, or a mixnet&nbsp;— it's an HTTPS forwarder that terminates your IP at Cloudflare rather than at the upstream API.</li>
