@@ -1,0 +1,53 @@
+/* Scoped platform-update proposal; base brand tokens and layout retained. */
+.store-buttons { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:24px; padding:12px; }
+.store-badge { display:inline-flex; align-items:center; justify-content:center; min-height:48px; }
+.store-badge img { width:auto; height:48px; max-width:none; }
+.apple-badge { cursor:default; }
+/* Google's supplied bitmap includes built-in clear space; equalize visible badges. */
+.play-badge { width:162px; height:48px; position:relative; }
+.play-badge img { position:absolute; height:72px; width:auto; }
+.store-badge:focus-visible, .btn:focus-visible { outline:3px solid var(--trust); outline-offset:8px; }
+.nav { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); }
+.nav > .brand { grid-column:1; justify-self:start; }
+.nav .nav-links { grid-column:2; justify-self:center; }
+.nav-store-buttons { grid-column:3; justify-self:end; display:flex; gap:12px; align-items:center; }
+.nav .nav-store-button { min-height:48px; padding:10px 16px; font-size:14px; white-space:nowrap; }
+.nav .nav-store-button { align-items:center; line-height:1; }
+.nav .nav-store-button svg { display:block; flex-shrink:0; }
+.nav .nav-store-button .apple-logo { width:22px; height:24px; }
+.nav .is-pending { cursor:default; }
+.nav .is-pending:hover { transform:none; background:var(--navy); }
+.hero-cta { margin-top:20px; }
+.hero-inner { max-width:1200px; }
+.hero-note { color:var(--ink-2); }
+.panel[id] { scroll-margin-top:80px; }
+.phone-radar { aspect-ratio:922/2048; }
+.phone-forecast { aspect-ratio:1320/2868; }
+.phone-forecast::after { display:none; }
+.fcta { justify-content:center; }
+.radar-labels { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+.radar-labels span { padding:6px 12px; border:1px solid var(--line-2); border-radius:999px; font-size:13px; color:var(--ink-2); }
+.screen-caption, .artwork-caption { font-family:var(--mono); font-size:11px; line-height:1.6; color:var(--ink-2); text-align:center; }
+.screen-caption { margin-bottom:12px; }
+.atmospheric-gallery { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:14px; width:100%; }
+.atmospheric-preview { aspect-ratio:1; padding:18px; border-radius:22px; display:flex; flex-direction:column; justify-content:space-between; text-align:left; background-size:cover; color:var(--ink); }
+.atmospheric-preview.wide { grid-column:1/-1; aspect-ratio:2/1; }
+.atmospheric-preview.daylight { background-image:url('assets/widget-clear-day-vibrant.png'); }
+.atmospheric-preview.rain { background-image:url('assets/widget-rain-vibrant.png'); color:var(--canvas); }
+.atmospheric-preview.sunset { background-image:url('assets/widget-sunset-great-vibrant.png'); background-position:right center; color:var(--canvas); }
+.widget-label { font-size:12px; font-weight:600; }
+.widget-value { display:block; font-size:30px; line-height:1.2; font-weight:600; margin-top:4px; }
+.widget-value small { font-size:15px; }
+.widget-detail { font-size:13px; font-weight:500; }
+.widget-rain-bars { display:flex; align-items:flex-end; gap:3px; height:28px; }
+.widget-rain-bars i { flex:1; border-radius:2px; }
+.widget-glance { display:flex; align-items:center; justify-content:space-between; gap:14px; }
+.widget-hours { display:flex; gap:12px; font-size:10px; text-align:center; }
+.widget-hours b { display:block; font-size:12px; margin-top:4px; }
+.atmospheric-gallery .artwork-caption { grid-column:1/-1; }
+@media(max-width:860px) { .radar-labels { justify-content:center; } }
+@media(max-width:820px) { .nav { grid-template-columns:auto minmax(0,1fr); gap:10px; } .nav-store-buttons { grid-column:2; gap:8px; } .nav .brand { font-size:16px; gap:6px; } .nav .brand > svg { width:24px; height:24px; } .nav .nav-store-button { min-height:44px; padding:8px 7px; font-size:12px; gap:5px; } .nav .nav-store-button svg { width:14px; height:16px; } }
+@media(max-width:820px) { .nav .nav-store-button .apple-logo { width:18px; height:20px; } }
+@media(max-width:600px) { .atmospheric-preview { padding:16px; } .widget-hours { gap:9px; } }
+@media(max-width:400px) { .store-buttons { gap:16px; } .store-badge img { height:40px; } .play-badge { width:135px; height:40px; } .play-badge img { height:60px; } }
+@media(prefers-reduced-motion:reduce) { *, *::before, *::after { animation:none !important; transition:none !important; } }

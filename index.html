@@ -7,17 +7,17 @@
 <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<title>Private Weather App. Quiet Sky — beautiful weather, real privacy. No Ads. No Tracking.</title>
-<meta name="description" content="A private weather app for Android. Beautiful skies, real privacy. Providers never see your IP, device, or identity, and we keep no record of your requests.">
+<title>Quiet Sky for iPhone and Android | Beautiful weather. Real privacy.</title>
+<meta name="description" content="Private weather for iPhone and Android. Rain timing, Futurecast, wind maps and beautiful widgets. No ads. No account.">
 <link rel="canonical" href="https://getquietsky.app/">
 <meta property="og:title" content="Quiet Sky — beautiful weather, real privacy">
-<meta property="og:description" content="The weather app that can't track you. Providers never see your IP, device, or identity. Android, no ads, no accounts.">
+<meta property="og:description" content="Beautiful weather for iPhone and Android. Rain timing, radar and widgets, with privacy built in.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getquietsky.app/">
 <meta property="og:image" content="https://getquietsky.app/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Quiet Sky — beautiful weather, real privacy">
-<meta name="twitter:description" content="The weather app that can't track you. Android, no ads, no accounts.">
+<meta name="twitter:description" content="Private weather for iPhone and Android. No ads. No account.">
 <meta name="twitter:image" content="https://getquietsky.app/assets/og-image.png">
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="styles-bold.css">
@@ -73,6 +73,7 @@
     .stage-card { transition: opacity .25s linear; transform: none !important; }
   }
 </style>
+<link rel="stylesheet" href="platform-update.css">
 </head>
 <body>
 
@@ -94,10 +95,10 @@
     <a href="#features">Features</a>
     <a href="#privacy">Privacy</a>
   </div>
-  <a class="btn btn-primary js-play" href="https://play.google.com/store/apps/details?id=app.getquietsky.android&amp;utm_source=website&amp;utm_medium=referral&amp;utm_campaign=site_launch&amp;utm_content=nav" aria-label="Get Quiet Sky on Google Play">
-    <svg viewBox="0 0 24 26" aria-hidden="true"><path d="M2 2.2 13.4 13 2 23.8c-.5-.3-.9-.9-.9-1.7V3.9c0-.8.4-1.4.9-1.7Z" fill="#00D2FF"/><path d="M17.7 9.2 13.4 13 2 2.2c.5-.3 1.1-.3 1.8.1l13.9 6.9Z" fill="#00E676"/><path d="M17.7 16.8 3.8 23.7c-.7.4-1.3.4-1.8.1L13.4 13l4.3 3.8Z" fill="#FF3D57"/><path d="m17.7 9.2 4 2c1 .6 1 1.9 0 2.5l-4 2L13.4 13l4.3-3.8Z" fill="#FFC400"/></svg>
-    <span class="lbl-long">Get it on Google Play</span>
-  </a>
+  <div class="nav-store-buttons" aria-label="Download Quiet Sky">
+      <span class="btn btn-primary nav-store-button is-pending" aria-label="App Store download link will be added after approval"><svg class="apple-logo" viewBox="8 8 21 24" fill="currentColor" aria-hidden="true"><path d="M24.76888,20.30068a4.94881,4.94881,0,0,1,2.35656-4.15206,5.06566,5.06566,0,0,0-3.99116-2.15768c-1.67924-.17626-3.30719,1.00483-4.1629,1.00483-.87227,0-2.18977-.98733-3.6085-.95814a5.31529,5.31529,0,0,0-4.47292,2.72787c-1.934,3.34842-.49141,8.26947,1.3612,10.97608.9269,1.32535,2.01018,2.8058,3.42763,2.7533,1.38706-.05753,1.9051-.88448,3.5794-.88448,1.65876,0,2.14479.88448,3.591.8511,1.48838-.02416,2.42613-1.33124,3.32051-2.66914a10.962,10.962,0,0,0,1.51842-3.09251A4.78205,4.78205,0,0,1,24.76888,20.30068Z"/><path d="M22.03725,12.21089a4.87248,4.87248,0,0,0,1.11452-3.49062,4.95746,4.95746,0,0,0-3.20758,1.65961,4.63634,4.63634,0,0,0-1.14371,3.36139A4.09905,4.09905,0,0,0,22.03725,12.21089Z"/></svg><span>App Store</span></span>
+      <a class="btn btn-primary nav-store-button" href="https://play.google.com/store/apps/details?id=app.getquietsky.android&amp;utm_source=website&amp;utm_medium=referral&amp;utm_campaign=ios_website_update&amp;utm_content=nav" aria-label="Get Quiet Sky on Google Play"><svg viewBox="0 0 24 26" aria-hidden="true"><path d="M2 2.2 13.4 13 2 23.8c-.5-.3-.9-.9-.9-1.7V3.9c0-.8.4-1.4.9-1.7Z" fill="#00D2FF"/><path d="M17.7 9.2 13.4 13 2 2.2c.5-.3 1.1-.3 1.8.1l13.9 6.9Z" fill="#00E676"/><path d="M17.7 16.8 3.8 23.7c-.7.4-1.3.4-1.8.1L13.4 13l4.3 3.8Z" fill="#FF3D57"/><path d="m17.7 9.2 4 2c1 .6 1 1.9 0 2.5l-4 2L13.4 13l4.3-3.8Z" fill="#FFC400"/></svg><span>Google Play</span></a>
+    </div>
 </nav>
 
 <!-- ============ HERO ============ -->
@@ -106,12 +107,7 @@
   <div class="hero-inner">
     <h1 class="d1"><span class="it">Beautiful weather.</span><span class="it">Real privacy.</span></h1>
     <p class="sub">The forecast is yours. You are nobody's product.</p>
-    <div class="hero-cta">
-      <a class="btn btn-trust btn-lg js-play" href="https://play.google.com/store/apps/details?id=app.getquietsky.android&amp;utm_source=website&amp;utm_medium=referral&amp;utm_campaign=site_launch&amp;utm_content=hero">
-        <svg viewBox="0 0 24 26" aria-hidden="true"><path d="M2 2.2 13.4 13 2 23.8c-.5-.3-.9-.9-.9-1.7V3.9c0-.8.4-1.4.9-1.7Z" fill="#fff" opacity=".95"/><path d="M17.7 9.2 13.4 13 2 2.2c.5-.3 1.1-.3 1.8.1l13.9 6.9Z" fill="#fff"/><path d="M17.7 16.8 3.8 23.7c-.7.4-1.3.4-1.8.1L13.4 13l4.3 3.8Z" fill="#fff" opacity=".85"/><path d="m17.7 9.2 4 2c1 .6 1 1.9 0 2.5l-4 2L13.4 13l4.3-3.8Z" fill="#fff" opacity=".9"/></svg>
-        Get it on Google Play
-      </a>
-    </div>
+    
     <p class="hero-note">Start free · no account · no ads</p>
   </div>
   <div class="hero-phone reveal">
@@ -125,7 +121,7 @@
     <div class="feat-intro reveal">
       <span class="kicker">The features</span>
       <h2>Everything the sky is about to do. <span class="soft">Nothing about you.</span></h2>
-      <p>Sunset predictions, rain to the minute, and the details that matter. One device, the whole story.</p>
+      <p>Sunset predictions, rain to the minute, Futurecast, and the details that matter. One app, the whole story.</p>
     </div>
 
     <div class="pin-grid">
@@ -134,14 +130,14 @@
         <article class="panel" data-panel="0">
           <span class="n">01 · Sunset quality</span>
           <h3>Know which sunsets<br>are worth it.</h3>
-          <p>From three hours out, Quiet Sky reads the clouds and the air, then tells you if tonight is worth stepping outside for.</p>
+          <p>Quiet Sky reads the clouds and the air, then tells you if the view tonight is worth stepping outside for.</p>
           <div class="inline-media"><div class="pad"><div class="app-card" data-qs-card="sunset"></div></div></div>
         </article>
 
         <article class="panel" data-panel="1">
           <span class="n">02 · Rain, to the minute</span>
           <h3>Rain in 8<br>minutes.</h3>
-          <p>A live precipitation countdown with a minute-by-minute intensity strip. Leave now, or wait it out.</p>
+          <p>See when rain is expected to arrive and ease, with a minute-by-minute intensity strip. Leave now, or wait it out.</p>
           <div class="inline-media"><div class="pad"><div class="app-card" data-qs-card="nowcast"></div></div></div>
         </article>
 
@@ -149,31 +145,27 @@
           <span class="n">03 · Details</span>
           <h3>Every detail,<br>charted.</h3>
           <p>Wind, precip, UV, pressure, each on its own hourly chart with peaks and lows called out. Depth, only when you ask.</p>
-          <div class="mini">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Peaks &amp; lows</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Tap any metric</div>
-          </div>
           <div class="inline-media"><div class="phone"><img src="assets/screen-wind.webp" width="1080" height="2640" loading="lazy" alt="Wind detail screen with an hourly wind chart and peak and low callouts."></div></div>
         </article>
 
-        <article class="panel" data-panel="3">
+        <article class="panel" data-panel="3" id="forecast">
           <span class="n">04 · 10-day forecast</span>
           <h3>Ten days,<br>at a glance.</h3>
           <p>A clean gradient bar maps each day's range, cool low to warm high, so the whole week reads in a single scroll.</p>
-          <div class="inline-media"><div class="phone"><img src="assets/screen-10day.webp" width="1080" height="2640" loading="lazy" alt="10-day forecast with gradient temperature-range bars."></div></div>
+          <div class="inline-media"><div class="phone phone-forecast"><img src="assets/screen-10day-current-ios.png" width="1320" height="2868" loading="lazy" alt="Current iPhone 10-day forecast with temperature, rain and cloud selectors and daily temperature-range bars."></div></div>
         </article>
 
-        <article class="panel" data-panel="4">
-          <span class="n">05 · Radar</span>
-          <h3>The weather,<br>nothing else.</h3>
-          <p>Map-first, a quiet basemap, and the only loud thing on screen is the sky coming your way. Scrub forward and watch it move.</p>
-          <div class="inline-media"><div class="phone"><img src="assets/screen-radar-light-202606.webp" width="1080" height="2640" loading="lazy" alt="Map-first radar over the Puget Sound with a time scrubber."></div></div>
+        <article class="panel" data-panel="4" id="radar">
+          <span class="n">05 · Radar &amp; Futurecast</span>
+          <h3>See what's<br>coming next.</h3>
+          <p>Follow rain ahead with Futurecast. Explore wind, temperature and air-quality layers on a map that keeps the weather in focus.</p><div class="radar-labels"><span>Futurecast</span><span>Wind maps</span><span>Temperature</span><span>Air quality</span></div>
+          <div class="inline-media"><div class="phone phone-radar"><img src="assets/radar-futurecast-review.png" width="922" height="2048" loading="lazy" alt="Android radar preview over Barcelona with a past-to-future precipitation timeline. Interface shown in Spanish."></div></div>
         </article>
 
-        <article class="panel" data-panel="5">
+        <article class="panel" data-panel="5" id="widgets">
           <span class="n">06 · Widgets</span>
           <h3>Widgets worth<br>placing.</h3>
-          <p>Six hand-tuned sizes with full dynamic color, the sunset preview right on your home screen. Not a junk drawer of seventy.</p>
+          <p>Hand-tuned sizes with full dynamic color, the sunset preview right on your home screen. Atmospheric gradients reflect the weather, from warm daylight to rain, night skies and sunset.</p>
           <div class="inline-media"><div class="app-card wide" data-qs-card="widgets"></div></div>
         </article>
       </div>
@@ -184,8 +176,8 @@
           <div class="stage-card active" data-card="0"><div class="pad"><div class="app-card" data-qs-card="sunset"></div></div></div>
           <div class="stage-card" data-card="1"><div class="pad"><div class="app-card" data-qs-card="nowcast"></div></div></div>
           <div class="stage-card" data-card="2"><div class="phone"><img src="assets/screen-wind.webp" width="1080" height="2640" loading="lazy" alt="Wind detail screen."></div></div>
-          <div class="stage-card" data-card="3"><div class="phone"><img src="assets/screen-10day.webp" width="1080" height="2640" loading="lazy" alt="10-day forecast."></div></div>
-          <div class="stage-card" data-card="4"><div class="phone"><img src="assets/screen-radar-light-202606.webp" width="1080" height="2640" loading="lazy" alt="Map-first radar."></div></div>
+          <div class="stage-card" data-card="3"><div class="phone phone-forecast"><img src="assets/screen-10day-current-ios.png" width="1320" height="2868" loading="lazy" alt="Current 10-day forecast with temperature, rain and cloud selectors."></div></div>
+          <div class="stage-card" data-card="4"><div class="phone phone-radar"><img src="assets/radar-futurecast-review.png" width="922" height="2048" loading="lazy" alt="Android Futurecast radar preview with a past-to-future timeline."></div></div>
           <div class="stage-card" data-card="5"><div class="app-card wide" data-qs-card="widgets"></div></div>
           <div class="pin-ticks" id="ticks"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
         </div>
@@ -198,7 +190,7 @@
 <section class="statement">
   <div class="wrap reveal">
     <h2 class="d2">Most weather apps<br>sell where you are.<br><span class="dim">This one can't.</span></h2>
-    <p class="say">No Quiet Sky account. No ads. No trackers.</p>
+    <p class="say">No account. No ads. No trackers.</p>
   </div>
 </section>
 
@@ -251,12 +243,7 @@
   <div class="wrap reveal">
     <h2 class="d1">The sky is<br>yours.</h2>
     <p class="sub">Beautiful weather, real privacy, and the receipts to prove it.</p>
-    <div class="fcta">
-      <a class="btn btn-trust btn-lg js-play" href="https://play.google.com/store/apps/details?id=app.getquietsky.android&amp;utm_source=website&amp;utm_medium=referral&amp;utm_campaign=site_launch&amp;utm_content=footer">
-        <svg viewBox="0 0 24 26" aria-hidden="true"><path d="M2 2.2 13.4 13 2 23.8c-.5-.3-.9-.9-.9-1.7V3.9c0-.8.4-1.4.9-1.7Z" fill="#fff" opacity=".95"/><path d="M17.7 9.2 13.4 13 2 2.2c.5-.3 1.1-.3 1.8.1l13.9 6.9Z" fill="#fff"/><path d="M17.7 16.8 3.8 23.7c-.7.4-1.3.4-1.8.1L13.4 13l4.3 3.8Z" fill="#fff" opacity=".85"/><path d="m17.7 9.2 4 2c1 .6 1 1.9 0 2.5l-4 2L13.4 13l4.3-3.8Z" fill="#fff" opacity=".9"/></svg>
-        Get it on Google Play
-      </a>
-    </div>
+    
     <p class="hero-note" style="margin-top:22px">Start free · no account · no ads</p>
     <p class="hero-note" style="margin-top:6px"><em>Purchases and subscriptions are handled by the app store.</em></p>
   </div>
@@ -288,13 +275,13 @@
         <a href="Story.html">Story</a>
         <a href="Privacy.html">Privacy policy</a>
         <a href="Terms.html">Terms</a>
-        <a href="mailto:quiet.sky.weather@gmail.com">Contact</a>
+        <a href="mailto:support@getquietsky.app">Contact</a>
       </div>
     </div>
   </div>
   <div class="footer-base">
     <span class="nt"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> No cookies. No tracking. Of course.</span>
-    <span class="cp">© 2026 Quiet Sky · Android-native, Material You</span>
+    <span class="cp">© 2026 Quiet Sky · iPhone and Android</span>
   </div>
 </footer>
 

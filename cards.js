@@ -46,27 +46,10 @@
       '</div>';
     },
     widgets: function () {
-      var mini = RAIN.filter(function (_, i) { return i % 3 === 0; })
-        .map(function (v) { return '<i style="height:' + Math.max(v * 100, 8) + '%"></i>'; }).join('');
-      return '' +
-      '<div class="qs-widgets">' +
-        '<div class="qs-w sunset">' +
-          '<div class="we">Tonight\u2019s sunset</div>' +
-          '<div><div class="q"><i></i>Great</div><div class="best">8:32 PM best</div></div>' +
-        '</div>' +
-        '<div class="qs-w rain">' +
-          '<div class="we">Next 30 min</div>' +
-          '<div><div class="num">8<b> min</b></div><div class="mini">' + mini + '</div></div>' +
-        '</div>' +
-        '<div class="qs-w glance big">' +
-          '<div class="we">Bellevue \u00b7 now</div>' +
-          '<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px">' +
-            '<div><div class="temp">52\u00b0</div><div class="cond">Partly Cloudy</div></div>' +
-            '<div class="row" style="flex:1;max-width:230px">' +
-              '<span>Now<b>52\u00b0</b></span><span>12P<b>55\u00b0</b></span><span>1P<b>57\u00b0</b></span><span>2P<b>58\u00b0</b></span><span>3P<b>60\u00b0</b></span>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      return '<div class="atmospheric-gallery" aria-label="Illustrative Sunset Quality, Rain in 30 and At-a-Glance widgets using approved Atmospheric artwork">' +
+        '<div class="atmospheric-preview sunset"><span class="widget-label">Tonight’s sunset</span><strong class="widget-value">Great</strong><span class="widget-detail">8:32 PM best</span></div>' +
+        '<div class="atmospheric-preview rain"><span class="widget-label">Next 30 min</span><strong class="widget-value">8 <small>min</small></strong><div class="widget-rain-bars" aria-hidden="true">' + bars(RAIN.filter(function (_, i) { return i % 3 === 0; })) + '</div></div>' +
+        '<div class="atmospheric-preview daylight wide"><span class="widget-label">Bellevue · now</span><div class="widget-glance"><div><strong class="widget-value">52°</strong><span class="widget-detail">Clear skies</span></div><div class="widget-hours"><span>Now<b>52°</b></span><span>12P<b>55°</b></span><span>1P<b>57°</b></span><span>2P<b>58°</b></span></div></div></div>' +
       '</div>';
     }
   };
