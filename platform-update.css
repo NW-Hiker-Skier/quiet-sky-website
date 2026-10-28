@@ -28,6 +28,7 @@
 .closing-store-buttons { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:12px; }
 .closing-store-buttons .store-download-button { min-height:48px; padding:10px 16px; font-size:14px; white-space:nowrap; line-height:1; }
 .closing-store-buttons svg { display:block; flex-shrink:0; }
+.nav-store-buttons svg path, .closing-store-buttons svg path { fill:currentColor; }
 .closing-store-buttons .apple-logo { width:22px; height:24px; }
 .closing-store-buttons .is-pending { cursor:default; }
 .closing-store-buttons .is-pending:hover { transform:none; background:var(--trust); }
