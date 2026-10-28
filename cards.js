@@ -46,10 +46,10 @@
       '</div>';
     },
     widgets: function () {
-      return '<div class="atmospheric-gallery" aria-label="Illustrative Sunset Quality, Rain in 30 and At-a-Glance widgets using approved Atmospheric artwork">' +
-        '<div class="atmospheric-preview sunset"><span class="widget-label">Tonight’s sunset</span><strong class="widget-value">Great</strong><span class="widget-detail">8:32 PM best</span></div>' +
-        '<div class="atmospheric-preview rain"><span class="widget-label">Next 30 min</span><strong class="widget-value">8 <small>min</small></strong><div class="widget-rain-bars" aria-hidden="true">' + bars(RAIN.filter(function (_, i) { return i % 3 === 0; })) + '</div></div>' +
-        '<div class="atmospheric-preview daylight wide"><span class="widget-label">Bellevue · now</span><div class="widget-glance"><div><strong class="widget-value">52°</strong><span class="widget-detail">Clear skies</span></div><div class="widget-hours"><span>Now<b>52°</b></span><span>12P<b>55°</b></span><span>1P<b>57°</b></span><span>2P<b>58°</b></span></div></div></div>' +
+      return '<div class="atmospheric-gallery" aria-label="Quiet Sky Android widgets with Atmospheric artwork">' +
+        '<img class="native-widget" src="assets/widget-native-sunset-vibrant.png" width="620" height="620" alt="Sunset Quality widget showing a Great sunset, golden hour and sunset times.">' +
+        '<img class="native-widget" src="assets/widget-native-rain-vibrant.png" width="620" height="620" alt="Rain in 30 widget showing rain arriving in 30 minutes and a labeled precipitation timeline.">' +
+        '<img class="native-widget wide" src="assets/widget-native-glance-vibrant.png" width="1166" height="570" alt="At-a-Glance widget with current weather, air quality, feels-like temperature, high and low, and precipitation.">' +
       '</div>';
     }
   };
