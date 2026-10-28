@@ -25,6 +25,12 @@
 .phone-forecast { aspect-ratio:1320/2868; }
 .phone-forecast::after { display:none; }
 .fcta { justify-content:center; }
+.closing-store-buttons { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:12px; }
+.closing-store-buttons .store-download-button { min-height:48px; padding:10px 16px; font-size:14px; white-space:nowrap; line-height:1; }
+.closing-store-buttons svg { display:block; flex-shrink:0; }
+.closing-store-buttons .apple-logo { width:22px; height:24px; }
+.closing-store-buttons .is-pending { cursor:default; }
+.closing-store-buttons .is-pending:hover { transform:none; background:var(--trust); }
 .radar-labels { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
 .radar-labels span { padding:6px 12px; border:1px solid var(--line-2); border-radius:999px; font-size:13px; color:var(--ink-2); }
 .screen-caption, .artwork-caption { font-family:var(--mono); font-size:11px; line-height:1.6; color:var(--ink-2); text-align:center; }
