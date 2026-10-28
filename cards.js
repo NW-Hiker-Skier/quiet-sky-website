@@ -49,7 +49,7 @@
       return '<div class="atmospheric-gallery" aria-label="Quiet Sky Android widgets with Atmospheric artwork">' +
         '<img class="native-widget" src="assets/widget-native-sunset-vibrant.png" width="620" height="620" alt="Sunset Quality widget showing a Great sunset, golden hour and sunset times.">' +
         '<img class="native-widget" src="assets/widget-native-rain-vibrant.png" width="620" height="620" alt="Rain in 30 widget showing rain arriving in 30 minutes and a labeled precipitation timeline.">' +
-        '<img class="native-widget wide" src="assets/widget-native-glance-vibrant.png" width="1166" height="570" alt="At-a-Glance widget with current weather, air quality, feels-like temperature, high and low, and precipitation.">' +
+        '<img class="native-widget wide" src="assets/widget-native-skyclock-vibrant.png" width="1166" height="570" alt="SkyClock widget showing the time, date, temperature and location on the sunny-day gradient.">' +
       '</div>';
     }
   };
