@@ -46,10 +46,27 @@
       '</div>';
     },
     widgets: function () {
-      return '<div class="atmospheric-gallery" aria-label="Quiet Sky Android widgets with Atmospheric artwork">' +
-        '<img class="native-widget" src="assets/widget-native-sunset-vibrant.png" width="620" height="620" alt="Sunset Quality widget showing a Great sunset, golden hour and sunset times.">' +
-        '<img class="native-widget" src="assets/widget-native-rain-vibrant.png" width="620" height="620" alt="Rain in 30 widget showing rain arriving in 30 minutes and a labeled precipitation timeline.">' +
-        '<img class="native-widget wide" src="assets/widget-native-skyclock-vibrant.png" width="1166" height="570" alt="SkyClock widget showing the time, date, temperature and location on the sunny-day gradient.">' +
+      var mini = RAIN.filter(function (_, i) { return i % 3 === 0; })
+        .map(function (v) { return '<i style="height:' + Math.max(v * 100, 8) + '%"></i>'; }).join('');
+      return '' +
+      '<div class="qs-widgets">' +
+        '<div class="qs-w sunset">' +
+          '<div class="we">Tonight\u2019s sunset</div>' +
+          '<div><div class="q"><i></i>Great</div><div class="best">8:32 PM best</div></div>' +
+        '</div>' +
+        '<div class="qs-w rain">' +
+          '<div class="we">Next 30 min</div>' +
+          '<div><div class="num">8<b> min</b></div><div class="mini">' + mini + '</div></div>' +
+        '</div>' +
+        '<div class="qs-w glance big">' +
+          '<div class="we">Bellevue \u00b7 now</div>' +
+          '<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px">' +
+            '<div><div class="temp">52\u00b0</div><div class="cond">Partly Cloudy</div></div>' +
+            '<div class="row" style="flex:1;max-width:230px">' +
+              '<span>Now<b>52\u00b0</b></span><span>12P<b>55\u00b0</b></span><span>1P<b>57\u00b0</b></span><span>2P<b>58\u00b0</b></span><span>3P<b>60\u00b0</b></span>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
       '</div>';
     }
   };
