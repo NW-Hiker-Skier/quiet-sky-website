@@ -15,8 +15,6 @@
 .nav .nav-store-button { align-items:center; line-height:1; }
 .nav .nav-store-button svg { display:block; flex-shrink:0; }
 .nav .nav-store-button .apple-logo { width:22px; height:24px; }
-.nav .is-pending { cursor:default; }
-.nav .is-pending:hover { transform:none; background:var(--navy); }
 .hero-cta { margin-top:20px; }
 .hero-inner { max-width:1200px; }
 .hero-note { color:var(--ink-2); }
@@ -30,8 +28,6 @@
 .closing-store-buttons svg { display:block; flex-shrink:0; }
 .nav-store-buttons svg path, .closing-store-buttons svg path { fill:currentColor; }
 .closing-store-buttons .apple-logo { width:22px; height:24px; }
-.closing-store-buttons .is-pending { cursor:default; }
-.closing-store-buttons .is-pending:hover { transform:none; background:var(--trust); }
 .radar-labels { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
 .radar-labels span { padding:6px 12px; border:1px solid var(--line-2); border-radius:999px; font-size:13px; color:var(--ink-2); }
 .screen-caption, .artwork-caption { font-family:var(--mono); font-size:11px; line-height:1.6; color:var(--ink-2); text-align:center; }
